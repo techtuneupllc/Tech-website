@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tech Tune-Up LLC – Friendly one-on-one tech help</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bitter:wght@600;800&display=swap">
+<style>
+:root{
+  --bg:#eaf3fb; --surface:#ffffff; --ink:#0b1f33; --muted:#3d556b;
+  --teal:#0a5bd3; --teal-ink:#ffffff; --sun:#19c37d; --sun-ink:#06223a; --line:#bcd3e8; --grid:rgba(10,91,211,.07);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#08131f; --surface:#0f2236; --ink:#e6f1fb; --muted:#a3bbd1;
+    --teal:#5aa9ff; --teal-ink:#08131f; --sun:#2fe08f; --sun-ink:#06223a; --line:#1f3a55; --grid:rgba(90,169,255,.08);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#08131f; --surface:#0f2236; --ink:#e6f1fb; --muted:#a3bbd1;
+  --teal:#5aa9ff; --teal-ink:#08131f; --sun:#2fe08f; --sun-ink:#06223a; --line:#1f3a55; --grid:rgba(90,169,255,.08);
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.1875rem/1.6 "Atkinson Hyperlegible",Verdana,system-ui,sans-serif}
+h1,h2,h3{font-family:Bitter,Georgia,serif;line-height:1.15;margin:0}
+a{color:var(--teal)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+body{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+header{padding:1rem 0;border-bottom:4px solid;border-image:linear-gradient(90deg,var(--teal),var(--sun)) 1;background:var(--surface)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.brand{font:800 1.35rem Bitter,Georgia,serif;text-decoration:none;color:var(--ink)}
+nav a{margin-left:1.25rem;color:var(--ink);font-weight:700}
+.btn{display:inline-block;padding:.85rem 1.4rem;border-radius:.6rem;background:var(--teal);color:var(--teal-ink);font-weight:700;text-decoration:none;font-size:1.1rem}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.hero{padding:3.5rem 0 2.5rem}
+.hero h1{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:800;max-width:15em}
+.hero p{max-width:34em;color:var(--muted);font-size:1.3rem;margin:1.25rem 0 0}
+.hero .actions{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.75rem}
+.sos{margin:1rem 0 3rem;background:var(--sun);color:var(--sun-ink);border-radius:1rem;padding:1.75rem;display:grid;gap:1rem;grid-template-columns:1fr auto;align-items:center}
+.sos h2{font-size:1.9rem}
+.sos p{margin:.4rem 0 0;max-width:36em}
+.sos .price{font:800 3rem Bitter,Georgia,serif;line-height:1;text-align:right}
+.sos .price small{display:block;font:700 1rem "Atkinson Hyperlegible",sans-serif;margin-top:.3rem}
+.sos .btn{background:var(--sun-ink);color:#fff;margin-top:1rem}
+section{padding:2.5rem 0}
+section>.wrap>h2{font-size:2rem;margin-bottom:1.25rem}
+.help{columns:2 18rem;column-gap:2.5rem;padding:0;margin:0;list-style:none}
+.help li{padding:.65rem 0 .65rem 1.9rem;position:relative;break-inside:avoid;border-bottom:1px solid var(--line)}
+.help li::before{content:"";position:absolute;left:0;top:1.15rem;width:.9rem;height:.9rem;border-radius:50%;background:var(--teal)}
+.rows{background:var(--surface);border:1px solid var(--line);border-radius:1rem;overflow:hidden}
+.row{display:grid;grid-template-columns:1fr auto;gap:1rem;padding:1.25rem 1.5rem;border-bottom:1px solid var(--line);align-items:baseline}
+.row:last-child{border-bottom:0}
+.row h3{font-size:1.3rem}
+.row p{margin:.25rem 0 0;color:var(--muted)}
+.row .amt{font:800 1.8rem Bitter,Georgia,serif;white-space:nowrap}
+.note{color:var(--muted);margin-top:1rem}
+.steps{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));counter-reset:s;padding:0;list-style:none;margin:0}
+.steps li{counter-increment:s;padding-left:3.4rem;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2.5rem;height:2.5rem;border-radius:50%;background:var(--teal);color:var(--teal-ink);font:800 1.3rem Bitter,serif;display:grid;place-items:center}
+.steps h3{font-size:1.25rem;margin-bottom:.25rem}
+.steps p{margin:0;color:var(--muted)}
+.contact{background:var(--surface);border-top:1px solid var(--line)}
+.contact p{max-width:36em}
+.contact .actions{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.25rem}
+footer{padding:1.5rem 0;color:var(--muted);font-size:1rem}
+@media (max-width:40rem){
+  nav{display:none}
+  .sos{grid-template-columns:1fr}
+  .sos .price{text-align:left}
+  .row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Tech Tune-Up LLC</a>
+    <nav aria-label="Main"><a href="#help">What we help with</a><a href="#prices">Prices</a><a href="#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <div class="hero">
+      <h1>Tech giving you trouble? Talk to a real person.</h1>
+      <p>Patient, one-on-one help with your phone, Wi-Fi, streaming, and home devices. No jargon, no rushing, and no question is too small.</p>
+      <div class="actions">
+        <a class="btn" href="#contact">Request help</a>
+        <a class="btn alt" href="#prices">See prices</a>
+      </div>
+    </div>
+
+    <div class="sos" id="emergency">
+      <div>
+        <h2>Stuck right now? Get a quick call.</h2>
+        <p>A 20-minute FaceTime or phone call to get you unstuck on the spot. Good for a frozen phone, a lost password, or a screen you can’t figure out.</p>
+        <a class="btn" href="#contact">Book a quick call (non-refundable)</a>
+      </div>
+      <div class="price">$20<small>for 20 minutes, non-refundable</small></div>
+    </div>
+  </div>
+
+  <section id="help">
+    <div class="wrap">
+      <h2>What we help with</h2>
+      <ul class="help">
+        <li>Smartphone questions, settings, and apps</li>
+        <li>Wi-Fi that is slow, drops, or won’t connect</li>
+        <li>Streaming services and smart TVs</li>
+        <li>Setting up new devices at your home</li>
+        <li>Troubleshooting that one thing that keeps going wrong</li>
+        <li>Tech support whenever you need it, by phone or video</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="prices">
+    <div class="wrap">
+      <h2>Simple, upfront prices</h2>
+      <div class="rows">
+        <div class="row"><div><h3>Emergency call</h3><p>20 minutes by FaceTime or phone. Non-refundable.</p></div><div class="amt">$20</div></div>
+        <div class="row"><div><h3>Fix one issue</h3><p>We come to you and fix the one thing that’s bothering you.</p></div><div class="amt">$75</div></div>
+        <div class="row"><div><h3>One hour of support</h3><p>One-on-one help with whatever you need.</p></div><div class="amt">$125</div></div>
+        <div class="row"><div><h3>Two hours of support</h3><p>Time for setup, a few problems, or learning at your pace.</p></div><div class="amt">$250</div></div>
+      </div>
+      <p class="note">Need more time? Each additional hour after two is $100.</p>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><h3>Tell us what’s wrong</h3><p>Call, text, or email in your own words. No tech terms needed.</p></li>
+        <li><h3>Pick your help</h3><p>A quick call, a visit for one fix, or a longer session.</p></li>
+        <li><h3>Get it sorted</h3><p>We walk through it with you, step by step, until it works.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Ready when you are</h2>
+      <p>Call or text to ask a question or book a time. If it’s urgent, say so and we’ll set up the $20 quick call (non-refundable). You can also email techtuneupllc@gmail.com.</p>
+      <div class="actions">
+        <a class="btn" href="tel:+18287670917">Call (828) 767-0917</a>
+        <a class="btn alt" href="mailto:techtuneupllc@gmail.com?subject=Tech%20help%20request">Email us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Tech Tune-Up LLC. Friendly tech help for everyone.</div>
+</footer>
+</body>
+</html>
